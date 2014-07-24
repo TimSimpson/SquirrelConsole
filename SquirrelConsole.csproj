@@ -1,0 +1,99 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C4ACE9A-67C6-408A-9C4A-E502B5F3FC19}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DebugConsole</RootNamespace>
+    <AssemblyName>DebugConsole1</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <ApplicationIcon>src\squirrel.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\AverageNumber.cs" />
+    <Compile Include="src\DebugConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\DebugConsole.Designer.cs">
+      <DependentUpon>DebugConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\DebugOutput.cs" />
+    <Compile Include="src\NamedPipe.cs" />
+    <Compile Include="src\Program.cs" />
+    <Compile Include="src\Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="src\DebugConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DebugConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\WatchGrid.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WatchGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="src\Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="src\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="src\Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="src\WatchGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\WatchGrid.Designer.cs">
+      <DependentUpon>WatchGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\WatchItem.cs" />
+    <Compile Include="src\WatchList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\squirrel.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
